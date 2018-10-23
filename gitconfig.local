@@ -1,5 +1,5 @@
 [user]
- name = harispepic
+ name = Haris Pepic
  email = haris.pepic@calydo.com
 [github]
  user = harispepic
@@ -79,4 +79,3 @@
   required = true
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
-

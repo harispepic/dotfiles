@@ -49,3 +49,5 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 export NVM_DIR="/Users/h-pepic/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(rbenv init -)"

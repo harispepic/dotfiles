@@ -22,14 +22,22 @@ brew_remove() {
 }
 
 apps=(
+  adobe-creative-cloud
   alfred
   appcleaner
   atom
+  bartender
   carbon-copy-cloner
+  clean-me
+  coconutbattery
+  daisydisk
+  day-o
   dropbox
   evernote
-  github-desktop
-  google-drive
+  firefox
+  github
+  google-chrome
+  hazel
   iterm2
   imageoptim
   lastpass
@@ -37,9 +45,11 @@ apps=(
   sip
   sketch
   sketch-toolbox
-  skitch
   skype
   skype-for-business
+  skyfonts
+  spectacle
+  spotify
   sublime-text
   teamviewer
   the-unarchiver
@@ -97,17 +107,41 @@ install_prezto
 git_clone_or_pull https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 
-## Symlinks
-# Sublime Text 3
-# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-ln -s "$HOME/Dropbox/AppSync/ST3/User" "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
-
 # Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles ..."
   rcup
 fi
 
-# System Settings
+## OSX System Settings
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs) (default: not set).
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Disable press-and-hold for keys in favor of key repeat (default: true).
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate (default: 60).
 defaults write NSGlobalDomain KeyRepeat -int 1
+
+# Show all filename extensions in Finder (default: false).
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Expand save panel (default: false).
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Disable auto-correct (default: true).
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Avoid creating .DS_Store files on network volumes (default: false).
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Require password 5 seconds after sleep or screen saver begins.
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 5
+
+# Enable Safari’s debug menu (default: false).
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Show the ~/Library folder (default: hidden).
+chflags nohidden ~/Library
